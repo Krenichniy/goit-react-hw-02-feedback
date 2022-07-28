@@ -1,12 +1,11 @@
 
 import  PropTypes from 'prop-types';
-
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
     const stats = { good, neutral, bad, total };
     const hasValue = Object.values(stats).some(value => value);
     return (
         <>
-            <h2>Statistics</h2>
+            
              
             {hasValue ?
                 (<ul>
@@ -26,5 +25,6 @@ Statistics.propTypes = {
     total: PropTypes.number.isRequired,
     positivePercentage: PropTypes.number.isRequired
 }
+
 
 export default Statistics;

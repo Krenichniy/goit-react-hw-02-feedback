@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import FeedbackOptions from './FeedbackOptions';
+import Section from './Section';
+import FeedbackOptions from './FeedBackOptions';
 import Statistics from './Statistics';
+
 class App extends Component {
   state = {
     good: 0,
@@ -24,25 +26,20 @@ class App extends Component {
 
   render() {
      return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-       >
-         <h1>Please leave feedback</h1>
-         <FeedbackOptions
-           options={this.state}
-           onLeaveFeedback={this.onLeaveFeedback} />
-         
-         <Statistics
-          {...this.state}
-          total={this.countTotalStatistics()}
-          positivePercentage={this.positivePercentage()} />
+    <div>
+        <Section title="Please leave feedback">
+            <FeedbackOptions
+              options={this.state}
+              onLeaveFeedback={this.onLeaveFeedback} />
+         </Section>
+
+         <Section title='Statistics'>
+           <Statistics
+              {...this.state}
+              total={this.countTotalStatistics()}
+              positivePercentage={this.positivePercentage()} />
+         </Section>
+        
     </div>
   );
   }
