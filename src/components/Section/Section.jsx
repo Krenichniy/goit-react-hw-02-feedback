@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import {SectionStyled, Header } from './Section.styled'
  
 const Section = ({ title, children }) => {
     return (
         <SectionStyled>
-            <h3>{title}</h3>
+            <Header>{title}</Header>
             {children}
         </SectionStyled>
         )
@@ -17,8 +17,5 @@ const Section = ({ title, children }) => {
     PropTypes.node,
   ]).isRequired,
 }
-const SectionStyled = styled.section`
-    padding-top: 30px;
-    padding-bottom: 30px;
-`
+
 export default Section;

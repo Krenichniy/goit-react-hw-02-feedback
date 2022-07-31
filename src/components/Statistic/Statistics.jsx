@@ -1,19 +1,18 @@
 
-import  PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import{ListItem, ListText} from './Statistic.styled'
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
     const stats = { good, neutral, bad, total };
     const hasValue = Object.values(stats).some(value => value);
     return (
         <>
-            
-             
             {hasValue ?
                 (<ul>
                     {Object.keys(stats).map((key, index) => (
-                        <li key={index}>{key}:{stats[key]}</li>
+                        <ListItem key={index}>{key}:{stats[key]}</ListItem>
                     ))}
-                    <li key={stats.length}>Positive feedback:{positivePercentage}%</li>
-                </ul>) : (<p> There is no feedback</p>)}       
+                    <ListItem key={stats.length}>Positive feedback:{positivePercentage}%</ListItem>
+                </ul>) : (<ListText> There is no feedback</ListText>)}       
         </>
     );
 };
